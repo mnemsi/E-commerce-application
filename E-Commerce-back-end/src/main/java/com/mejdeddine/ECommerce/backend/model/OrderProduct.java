@@ -15,6 +15,8 @@ import javax.persistence.Transient;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderProduct {
+    //we put @JsonIgnore on the primary key. That's because
+    // we don't want to serialize Order part of the primary key since it'd be redundant.
     @EmbeddedId
     @JsonIgnore
     private OrderProductPK pk;

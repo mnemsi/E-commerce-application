@@ -37,8 +37,8 @@ public class Order {
     private List<OrderProduct> orderProducts = new ArrayList<>();
 
 
-// we have two @Transient methods that will return a total amount for that order and the number of products in it.
-// Both represent calculated data, so there is no need to store it in the database.
+    // we have two @Transient methods that will return a total amount for that order and the number of products in it.
+    // Both represent calculated data, so there is no need to store it in the database.
     @Transient
     public Double getTotalOrderPrice() {
         double sum = 0D;
@@ -48,7 +48,9 @@ public class Order {
         }
         return sum;
     }
-
+    //Java's transient keyword is used to denote that a field is not to be serialized,
+    // whereas JPA's @Transient annotation is used to indicate that a field is not to be persisted
+    // in the database, i.e. their semantics are different.
     @Transient
     public int getNumberOfProducts() {
         return this.orderProducts.size();
