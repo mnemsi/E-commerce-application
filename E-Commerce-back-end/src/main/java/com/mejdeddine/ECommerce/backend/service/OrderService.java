@@ -7,13 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public Iterable<Order> getAllOrders() {
+    public List<Order> getAllOrders() {
         return this.orderRepository.findAll();
     }
 
@@ -24,5 +25,9 @@ public class OrderService {
 
     public void update(Order order) {
         this.orderRepository.save(order);
+    }
+
+    public void save(Order order) {
+        orderRepository.save(order);
     }
 }
